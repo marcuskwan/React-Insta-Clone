@@ -1,13 +1,12 @@
 import React from "react";
 import Comment from "./Comment";
-// import PropTypes from "prop-types";
 
 const CommentSection = props => {
   return (
     <>
       {props.postCommentsArray.map(commentObj => {
         return (
-          <div className="comment">
+          <div key={commentObj.id} className="comment">
             <Comment commentObj={commentObj} />
           </div>
         );
@@ -18,15 +17,5 @@ const CommentSection = props => {
     </>
   );
 };
-
-// CommentSection.propTypes = {
-//   postComments: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       username: PropTypes.string.isRequired,
-//       text: PropTypes.string.isRequired
-//     })
-//   )
-// };
 
 export default CommentSection;

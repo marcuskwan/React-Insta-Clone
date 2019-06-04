@@ -6,17 +6,30 @@ import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends React.Component {
   state = {
-    postsDataArray: dummyData
+    postsDataArray: []
+  };
+  componentDidMount() {
+    this.setState({
+      postsDataArray: dummyData
+    });
+  }
+  searchBarFilter = searchTerm => {
+    const newFilteredArray = this.state.postsDataArray.filter(
+      postObject => postObject.username === searchTerm
+    );
+    this.setState({
+      postsDataArray: newFilteredArray
+    });
   };
   render() {
     return (
       <div className="App">
         <header>
-          <SearchBar />
+          <SearchBar searchBarFilter={this.searchBarFilter} />
         </header>
         {this.state.postsDataArray.map(postObject => {
           return (
-            <div className="post-container">
+            <div key={postObject.id} className="post-container">
               <PostContainer key={postObject.id} postObject={postObject} />
             </div>
           );
