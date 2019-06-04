@@ -14,11 +14,13 @@ class App extends React.Component {
         <header>
           <SearchBar />
         </header>
-        <div className="posts-container">
-          {this.state.postsDataArray.map(postObject => (
-            <PostContainer key={postObject.id} postObject={postObject} />
-          ))}
-        </div>
+        {this.state.postsDataArray.map(postObject => {
+          return (
+            <div className="post-container">
+              <PostContainer key={postObject.id} postObject={postObject} />
+            </div>
+          );
+        })}
       </div>
     );
   }

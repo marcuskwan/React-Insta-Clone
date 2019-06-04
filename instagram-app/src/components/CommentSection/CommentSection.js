@@ -1,13 +1,20 @@
 import React from "react";
+import Comment from "./Comment";
 // import PropTypes from "prop-types";
 
 const CommentSection = props => {
   return (
     <>
-      <div className="comment-section">
-        <div className="username">{props.postCommentsArray.username}</div>
-        <div className="text">{props.postCommentsArray.text}</div>
-      </div>
+      {props.postCommentsArray.map(commentObj => {
+        return (
+          <div className="comment">
+            <Comment commentObj={commentObj} />
+          </div>
+        );
+      })}
+      <form>
+        <input placeholder="Enter comment here" />
+      </form>
     </>
   );
 };

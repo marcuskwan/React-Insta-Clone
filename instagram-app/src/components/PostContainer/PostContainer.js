@@ -3,12 +3,9 @@ import CommentSection from "../CommentSection/CommentSection";
 // import PropTypes from "prop-types";
 
 const PostContainer = props => {
-  console.log(props);
   return (
     <>
-      <div className="post-container">
-        <CommentSection postCommentsArray={props.postObject.comments} />
-      </div>
+      <CommentSection postCommentsArray={props.postObject.comments} />
     </>
   );
 };
