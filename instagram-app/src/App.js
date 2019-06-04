@@ -5,20 +5,19 @@ import PostContainer from "./components/PostContainer/PostContainer";
 import SearchBar from "./components/SearchBar/SearchBar";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      postsDataArray: dummyData
-    };
-  }
+  state = {
+    postsDataArray: dummyData
+  };
   render() {
     return (
       <div className="App">
         <header>
           <SearchBar />
         </header>
-        <div className="post-container">
-          <PostContainer postsDataArray={this.state.postsDataArray} />
+        <div className="posts-container">
+          {this.state.postsDataArray.map(postObject => (
+            <PostContainer key={postObject.id} postObject={postObject} />
+          ))}
         </div>
       </div>
     );
