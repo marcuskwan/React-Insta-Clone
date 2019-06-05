@@ -4,11 +4,10 @@ class SearchBar extends React.Component {
   state = {
     searchTerm: ""
   };
-  handleChange = e => {
-    e.preventDefault();
-    console.log("If you can see me I didn't refresh");
+  handleChanges = event => {
+    event.preventDefault();
     this.setState({
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value
     });
   };
   searchBarFilter = event => {
@@ -21,23 +20,14 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="search-bar">
-        {/* <div className="left-side-icons">
-        <img />
-        <img />
-      </div> */}
         <form onSubmit={this.searchBarFilter}>
           <input
-            onChange={this.handleChange}
-            placeholder="Search for posts by search term"
             name="searchTerm"
             value={this.state.searchTerm}
+            placeholder="Search for posts by search term"
+            onChange={this.handleChanges}
           />
         </form>
-        {/* <div className="right-side-icons">
-        <img />
-        <img />
-        <img />
-      </div> */}
       </div>
     );
   }

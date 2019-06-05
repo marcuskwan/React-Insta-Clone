@@ -14,11 +14,11 @@ class App extends React.Component {
     });
   }
   searchBarFilter = searchTerm => {
-    const newFilteredArray = this.state.postsDataArray.filter(
+    const newlyFilteredArray = this.state.postsDataArray.filter(
       postObject => postObject.username === searchTerm
     );
     this.setState({
-      postsDataArray: newFilteredArray
+      postsDataArray: newlyFilteredArray
     });
   };
   render() {
