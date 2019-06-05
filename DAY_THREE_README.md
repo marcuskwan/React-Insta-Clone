@@ -33,7 +33,7 @@ x - Inside of `withAuthenticate's` render method, you'll want to return the Comp
 x- Be sure to export.
 x- Head over to App.js and `import` in our new `withAuthenticate` Higher Order Component.
 
-- Set a new const called `ComponentFromWithAuthenticate`, and set it's value to the HOC invoked, with `PostsPage` passed in.
+x- Set a new const called `ComponentFromWithAuthenticate`, and set it's value to the HOC invoked, with `PostsPage` passed in.
 - Inside `App`, you should now render `ComponentFromWithAuthenticate` in place of `PostsPage`.
 - If this worked correctly, then everything should render as it used to.
 - `withAuthenticate` will look a lot like this when you're done setting it up.
@@ -47,23 +47,23 @@ const withAuthenticate = App =>
   };
 ```
 
-- Build out the LoginPage component. You can design it how you like
+x- Build out the LoginPage component. You can design it how you like
 
-  - In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
-  - There should be a `username` input, a `password` input, and a `Login` button.
-  - The component should invoke the `login` function in `Login.js` when a user logs in.
+  x- In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
+  x- There should be a `username` input, a `password` input, and a `Login` button.
+  x- The component should invoke the `login` function in `Login.js` when a user logs in.
   - This login function should set a `username` on `localStorage`. You'll need to check local storage to see if a user is logged in.
-  - Be sure to force the page to reload when a user logs in so that our component un-mounts and mounts again.
+  x- Be sure to force the page to reload when a user logs in so that our component un-mounts and mounts again.
 
 - Extending the functionality of the HOC to conditionally render the `LoginPage` or the `App`
 
   - First, we need to change our `withAuthenticate` HOC to return a second function that will take in a second component (which will be the `LoginPage`). This will look like a "double arrow" function - `const withAuthenticate = PostsPage => LoginPage => {}`.
   - In `App.js`, we can now invoke the HOC function twice (which is called currying). The first time it's invoked, pass in `PostsPage`. The second time, pass in `LoginPage` (which you'll need to import here). ie - `export default higherOrderComp(FirstComponent)(SecondComponent)`
   - Inside of the class component that the inner function in `withAuthenticate` returns, we need to add a constructor to hold our state data.
-  - On state we need a `loggedIn` boolean flag.
-  - In `componentDidMount` we need to check `localStorage` to see if a user is logged in, and setState accordingly.
-  - Inside of the render function we will check `if a user is logged in` from the state boolean flag
-  - If a user is logged in we will return the `<PostsPage />`, else we will return the `<LoginPage>`
+  x- On state we need a `loggedIn` boolean flag.
+  x- In `componentDidMount` we need to check `localStorage` to see if a user is logged in, and setState accordingly.
+  x- Inside of the render function we will check `if a user is logged in` from the state boolean flag
+  x- If a user is logged in we will return the `<PostsPage />`, else we will return the `<LoginPage>`
 
 #### Stretch Problems (Day III)
 

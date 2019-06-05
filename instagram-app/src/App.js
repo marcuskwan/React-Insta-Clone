@@ -3,11 +3,18 @@ import "./App.css";
 import dummyData from "./dummy-data";
 import PostsPage from "./components/PostsContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
+// import withAuthenticate HOC
+import withAuthenticate from "./components/authentication/withAuthenticate";
+import LoginPage from "./"
+
+// making Component for withAuthenticate function
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
 class App extends React.Component {
   state = {
     postsDataArray: []
   };
+
   // using componentDidMount to set postsDataArray key to a value of dummyData
   componentDidMount() {
     this.setState({
@@ -31,7 +38,9 @@ class App extends React.Component {
         <header>
           <SearchBar searchBarFilter={this.searchBarFilter} />
         </header>
-        <PostsPage postsDataArray={this.state.postsDataArray} />
+        <ComponentFromWithAuthenticate
+          postsDataArray={this.state.postsDataArray}
+        />
       </div>
     );
   }
