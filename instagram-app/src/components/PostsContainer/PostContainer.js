@@ -2,12 +2,21 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 // importing PropTypes package
 // import PropTypes from "prop-types";
+// importing FontAwesomeIcon package
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// importing FA Heart transparent icon and FA Comment transparent icon
+import {
+  faHeart as farHeart,
+  faComment
+} from "@fortawesome/free-regular-svg-icons";
+// importing FA Heart solid icon
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 
 class PostContainer extends React.Component {
   render() {
     return (
       <>
-        <div className="poster-thumnail-username">
+        <div className="poster-thumbnail-username">
           <div className="poster-thumbnail">
             <img
               src={this.props.postObject.thumbnailUrl}
@@ -19,11 +28,14 @@ class PostContainer extends React.Component {
           </div>
         </div>
         <div className="poster-image">
-          <img src={this.props.postObject.imageUrl} alt="poster-image" />
+          <img src={this.props.postObject.imageUrl} alt="main" />
         </div>
         <div className="icons">
-          <div className="heart-icon">Insert heart icon here</div>
-          <div className="comment-icon">Insert comment icon here</div>
+          <div className="heart-icon">
+            <FontAwesomeIcon className={farHeart} onClick=className={fas-heart} />
+          </div>
+          <div className="comment-icon" />
+          <FontAwesomeIcon className={fasHeart}/>
         </div>
         <div className="likes">{this.props.postObject.likes} likes</div>
         <CommentSection postCommentsArray={this.props.postObject.comments} />

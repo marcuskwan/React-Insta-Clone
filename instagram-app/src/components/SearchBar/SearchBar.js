@@ -1,4 +1,11 @@
+// importing React
 import React from "react";
+// importing styled-components
+import styled from "styled-components";
+//  styling searchBar container component
+const SearchBarContainer = styled.div`
+  background: pink;
+`;
 
 class SearchBar extends React.Component {
   state = {
@@ -19,7 +26,7 @@ class SearchBar extends React.Component {
   };
   render() {
     return (
-      <div className="search-bar">
+      <SearchBarContainer>
         <form onSubmit={this.searchBarFilter}>
           <input
             name="searchTerm"
@@ -28,7 +35,7 @@ class SearchBar extends React.Component {
             onChange={this.handleChanges}
           />
         </form>
-      </div>
+      </SearchBarContainer>
     );
   }
 }

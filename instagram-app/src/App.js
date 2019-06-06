@@ -1,7 +1,7 @@
 // import React package from react file
 import React from "react";
 // importing css file
-import "./App.css";
+import "./App.scss";
 // import mock data
 import dummyData from "./dummy-data";
 // import SearchBar component
