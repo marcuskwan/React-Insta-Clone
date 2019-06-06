@@ -7,7 +7,10 @@ class PostContainer extends React.Component {
   render() {
     return (
       <>
-        <CommentSection postCommentsArray={this.props.postObject.comments} />
+        <div>{this.props.postObject.username}</div>
+        <CommentSection
+          postCommentsArray={this.props.postObject.comments}
+        />
       </>
     );
   }
