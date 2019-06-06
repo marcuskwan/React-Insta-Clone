@@ -2,7 +2,7 @@
 
 ### Focus (Day II)
 
-- Understand the concept of React component lifecycles, along with the major lifecycle methods such as `render`, `componentDidMount`.
+x- Understand the concept of React component lifecycles, along with the major lifecycle methods such as `render`, `componentDidMount`.
 
 ### Daily Setup (Day II)
 
@@ -10,18 +10,20 @@
 
 <img src='/assets/InstaClone-componentStructure.jpg' width='235' />
 
-- Your data should be imported to `app.js`, and then passed as props to each `PostContainer`.
-- Each `PostContainer` should then be passing data to a `CommentSection` via props as well.
+x- Your data should be imported to `app.js`, and then passed as props to each `PostContainer`.
+x- Each `PostContainer` should then be passing data to a `CommentSection` via props as well.
+
 - The props being passed to each component should be typed checked using `propTypes` and `defaultProps`.
-- The comment section should add a comment to the post
+  x- The comment section should add a comment to the post
 
 ### Description (Day II)
 
 x For this part of the project you are going to use React's lifecycle methods to get data and to render the components. Then you will use functions passed as props to build out the functionality more.
 x As data comes into the component, you will set it to the component's state, then pass it down to the child components.
+
 - Add the functionality to add a comment to any of the posts. Since there is no login page or anything of that sort, hard code a static username.
 - Implement the ability to like a post by clicking on a heart icon and having the number of likes increment accordingly.
-x -Get the Search Bar to filter posts by the post's username. When you submit a search term should filter out posts by users whose usernames do not match the search term.
+  x -Get the Search Bar to filter posts by the post's username. When you submit a search term should filter out posts by users whose usernames do not match the search term.
 
 #### Tasks (Day II)
 
@@ -36,7 +38,7 @@ x -Get the Search Bar to filter posts by the post's username. When you submit a 
 - Liking posts
   - This will be set up a lot like the 'Add a comment...' input. Pass a function down to where your heart icon is, and use `onClick` event handler to increment that post's likes.
 - Search
-  - Set up the search bar like the comment input and the like button. In your function, filter out any post whose username doesn't match the search term passed in, then update the state with the resulting data.
+  x- Set up the search bar like the comment input and the like button. In your function, filter out any post whose username doesn't match the search term passed in, then update the state with the resulting data.
 
 #### Stretch Problems (Day II)
 

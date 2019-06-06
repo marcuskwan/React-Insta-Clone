@@ -1,3 +1,4 @@
+// import React package from react file
 import React from "react";
 // importing css file
 import "./App.css";
@@ -16,7 +17,7 @@ class App extends React.Component {
     postsDataArray: []
   };
 
-  // using componentDidMount to set postsDataArray key to a value of dummyData array
+  // using componentDidMount to set postsDataArray key to a value of dummyData array. This actually happens after everything is rendered once already.
   componentDidMount() {
     this.setState({
       postsDataArray: dummyData

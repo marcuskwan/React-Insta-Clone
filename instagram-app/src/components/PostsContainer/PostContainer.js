@@ -3,13 +3,15 @@ import CommentSection from "../CommentSection/CommentSection";
 // importing PropTypes package
 // import PropTypes from "prop-types";
 
-const PostContainer = props => {
-  return (
-    <>
-      <CommentSection postCommentsArray={props.postObject.comments} />
-    </>
-  );
-};
+class PostContainer extends React.Component {
+  render() {
+    return (
+      <>
+        <CommentSection postCommentsArray={this.props.postObject.comments} />
+      </>
+    );
+  }
+}
 
 // PostContainer.propTypes = {
 //   postsDataArray: PropTypes.arrayOf(

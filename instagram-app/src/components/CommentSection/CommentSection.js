@@ -8,31 +8,11 @@ class CommentSection extends React.Component {
     // commentInput key to set value to load as empty, and something that handleChange can update
     commentInput: ""
   };
-  // addNewComment Function
-  // addNewComment = (event, index) => {
-  // const newComment = {
-  //     id: this.state.postCommentsDataArray.,
-  //     username: "newUser",
-  //     text: commentInput
-  //   };
-  // }
-  // addNewComment = commentInput => {
+  // addNewComment function 
+  addNewEvent = (event, index) => {
+  
+}
 
-  //   this.setState(previousState => {
-  //     return {
-  //       postsDataArray: previousState.postsDataArray.map(postObject => {
-  //         if (postObject.id === postID) {
-  //           return {
-  //             ...postObject,
-  //             postObject.comments: ...postObject.comments, newComment
-  //           }
-  //         } else {
-  //           return postObject
-  //         }
-  //       })
-  //     };
-  //   });
-  // };
   // handleChange Function
   handleChanges = event => {
     event.preventDefault();
@@ -50,7 +30,7 @@ class CommentSection extends React.Component {
             </div>
           );
         })}
-        <form>
+        <form onSubmit={() =>this.addNewEvent()}>
           <input
             name="commentInput"
             value={this.state.commentInput}
