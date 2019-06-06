@@ -2,18 +2,18 @@
 
 ### Focus (Day III)
 
-- Be able to explain and implement a React Higher Order Component to conditionally render protected content to the screen.
+x- Be able to explain and implement a React Higher Order Component to conditionally render protected content to the screen.
 
 ### Daily Setup (Day III)
 
-- To start off today, your application should still be structured like yesterday, but now it should have a working search bar, comment input, and like icon.
-- Those aren't necessary, however, for what you will be doing today. You can still work on today's part of this project even if you aren't completely done with yesterday's portion.
+x- To start off today, your application should still be structured like yesterday, but now it should have a working search bar, comment input, and like icon.
+x- Those aren't necessary, however, for what you will be doing today. You can still work on today's part of this project even if you aren't completely done with yesterday's portion.
 
 ### Description (Day III)
 
-- Today you will be building a "Higher Order Component" (HOC)
-- The HOC will not let users see the posts until they have logged in. (Our login system for this will be faked using LocalStorage).
-- The job of the HOC will be to render a login page if the user is not logged in, then render the posts after the user is logged in.
+x- Today you will be building a "Higher Order Component" (HOC)
+x- The HOC will not let users see the posts until they have logged in. (Our login system for this will be faked using LocalStorage).
+x- The job of the HOC will be to render a login page if the user is not logged in, then render the posts after the user is logged in.
 
 #### Tasks (Day III)
 
@@ -34,9 +34,9 @@ x- Be sure to export.
 x- Head over to App.js and `import` in our new `withAuthenticate` Higher Order Component.
 
 x- Set a new const called `ComponentFromWithAuthenticate`, and set it's value to the HOC invoked, with `PostsPage` passed in.
-- Inside `App`, you should now render `ComponentFromWithAuthenticate` in place of `PostsPage`.
-- If this worked correctly, then everything should render as it used to.
-- `withAuthenticate` will look a lot like this when you're done setting it up.
+x- Inside `App`, you should now render `ComponentFromWithAuthenticate` in place of `PostsPage`.
+x- If this worked correctly, then everything should render as it used to.
+x- `withAuthenticate` will look a lot like this when you're done setting it up.
 
 ```js
 const withAuthenticate = App =>
@@ -49,17 +49,17 @@ const withAuthenticate = App =>
 
 x- Build out the LoginPage component. You can design it how you like
 
-  x- In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
-  x- There should be a `username` input, a `password` input, and a `Login` button.
-  x- The component should invoke the `login` function in `Login.js` when a user logs in.
-  - This login function should set a `username` on `localStorage`. You'll need to check local storage to see if a user is logged in.
-  x- Be sure to force the page to reload when a user logs in so that our component un-mounts and mounts again.
+x- In your `components` directory, create a directory called `Login` and add a new file called `Login.js`.
+x- There should be a `username` input, a `password` input, and a `Login` button.
+x- The component should invoke the `login` function in `Login.js` when a user logs in.
+x- This login function should set a `username` on `localStorage`. You'll need to check local storage to see if a user is logged in.
+x- Be sure to force the page to reload when a user logs in so that our component un-mounts and mounts again.
 
 - Extending the functionality of the HOC to conditionally render the `LoginPage` or the `App`
 
-  - First, we need to change our `withAuthenticate` HOC to return a second function that will take in a second component (which will be the `LoginPage`). This will look like a "double arrow" function - `const withAuthenticate = PostsPage => LoginPage => {}`.
-  - In `App.js`, we can now invoke the HOC function twice (which is called currying). The first time it's invoked, pass in `PostsPage`. The second time, pass in `LoginPage` (which you'll need to import here). ie - `export default higherOrderComp(FirstComponent)(SecondComponent)`
-  - Inside of the class component that the inner function in `withAuthenticate` returns, we need to add a constructor to hold our state data.
+  x- First, we need to change our `withAuthenticate` HOC to return a second function that will take in a second component (which will be the `LoginPage`). This will look like a "double arrow" function - `const withAuthenticate = PostsPage => LoginPage => {}`.
+  x- In `App.js`, we can now invoke the HOC function twice (which is called currying). The first time it's invoked, pass in `PostsPage`. The second time, pass in `LoginPage` (which you'll need to import here). ie - `export default higherOrderComp(FirstComponent)(SecondComponent)`
+  x- Inside of the class component that the inner function in `withAuthenticate` returns, we need to add a constructor to hold our state data.
   x- On state we need a `loggedIn` boolean flag.
   x- In `componentDidMount` we need to check `localStorage` to see if a user is logged in, and setState accordingly.
   x- Inside of the render function we will check `if a user is logged in` from the state boolean flag

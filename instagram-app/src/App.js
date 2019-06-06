@@ -1,21 +1,22 @@
 import React from "react";
+// importing css file
 import "./App.css";
+// import mock data
 import dummyData from "./dummy-data";
-import PostsPage from "./components/PostsContainer/PostsPage";
+// import SearchBar component
 import SearchBar from "./components/SearchBar/SearchBar";
-// import withAuthenticate HOC
+// import withAuthenticate Higher Order Function
 import withAuthenticate from "./components/authentication/withAuthenticate";
-import LoginPage from "./"
 
-// making Component for withAuthenticate function
-const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
+// creating ComponentFromWithAuthenticate
+const ComponentFromWithAuthenticate = withAuthenticate;
 
 class App extends React.Component {
   state = {
     postsDataArray: []
   };
 
-  // using componentDidMount to set postsDataArray key to a value of dummyData
+  // using componentDidMount to set postsDataArray key to a value of dummyData array
   componentDidMount() {
     this.setState({
       postsDataArray: dummyData
@@ -30,7 +31,6 @@ class App extends React.Component {
       postsDataArray: newlyFilteredArray
     });
   };
-  // this function modifies the postsDataArray key in our state and adds a comment to the end of a post. The comment was sourced from our commentInput key that's obtained from the state within CommentSection.js
 
   render() {
     return (

@@ -1,6 +1,7 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import PropTypes from "prop-types";
+// importing PropTypes package
+// import PropTypes from "prop-types";
 
 const PostContainer = props => {
   return (
@@ -30,8 +31,8 @@ const PostContainer = props => {
 //   )
 // };
 
-PostContainer.propTypes = {
-  postObject: {}
-}
+// PostContainer.propTypes = {
+//   postObject: {}
+// }
 
 export default PostContainer;

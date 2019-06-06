@@ -11,7 +11,6 @@ class PostsPage extends React.Component {
             <PostContainer key={postObject.id} postObject={postObject} />
           </div>
         ))}
-        ;
       </div>
     );
   }
