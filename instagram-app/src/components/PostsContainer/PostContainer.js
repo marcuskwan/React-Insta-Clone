@@ -13,32 +13,58 @@ import {
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 
 class PostContainer extends React.Component {
+  state = {
+    postObjectData: this.props.postObject,
+    isLiked: false,
+    likes: this.props.postObject.likes
+  };
+
+  handleLikesChanges = event => {
+    event.preventDefault();
+    this.setState(previousState => {
+      return {
+        postObjectData: this.props.postObject,
+        isLiked: !previousState.isLiked,
+        likes: previousState.isLiked
+          ? this.props.postObject.likes + 1
+          : this.props.postObject.likes
+      };
+    });
+  };
+
   render() {
     return (
       <>
         <div className="poster-thumbnail-username">
           <div className="poster-thumbnail">
             <img
-              src={this.props.postObject.thumbnailUrl}
+              src={this.state.postObjectData.thumbnailUrl}
               alt="poster-thumbnail"
             />
           </div>
           <div className="poster-username">
-            {this.props.postObject.username}
+            {this.state.postObjectData.username}
           </div>
         </div>
         <div className="poster-image">
-          <img src={this.props.postObject.imageUrl} alt="main" />
+          <img src={this.state.postObjectData.imageUrl} alt="main" />
         </div>
         <div className="icons">
           <div className="heart-icon">
-            <FontAwesomeIcon className={farHeart} onClick=className={fas-heart} />
+            <FontAwesomeIcon
+              className="far fa-heart"
+              icon={farHeart}
+              onClick={this.handleLikesChanges}
+            />
+            {/* onClick=className={fas - heart} */}
           </div>
           <div className="comment-icon" />
-          <FontAwesomeIcon className={fasHeart}/>
+          <FontAwesomeIcon className="far fa-comment" icon={faComment} />
         </div>
-        <div className="likes">{this.props.postObject.likes} likes</div>
-        <CommentSection postCommentsArray={this.props.postObject.comments} />
+        <div className="likes">{this.state.likes} likes</div>
+        <CommentSection
+          postCommentsArray={this.state.postObjectData.comments}
+        />
       </>
     );
   }
