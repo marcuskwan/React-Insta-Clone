@@ -5,13 +5,15 @@ class PostsPage extends React.Component {
   state = {};
   render() {
     return (
-      <div className="posts-page">
+      <>
+      {/* <div className="posts-page"> */}
         {this.props.postsDataArray.map(postObject => (
           <div key={postObject.id} className="post-container">
             <PostContainer key={postObject.id} postObject={postObject} />
           </div>
         ))}
-      </div>
+        {/* </div> */}
+        </>
     );
   }
 }

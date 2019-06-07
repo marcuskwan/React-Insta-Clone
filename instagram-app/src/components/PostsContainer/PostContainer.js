@@ -1,7 +1,6 @@
 import React from "react";
+// importing CommentSection
 import CommentSection from "../CommentSection/CommentSection";
-// importing PropTypes package
-// import PropTypes from "prop-types";
 // importing FontAwesomeIcon package
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // importing FA Heart transparent icon and FA Comment transparent icon
@@ -11,6 +10,8 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 // importing FA Heart solid icon
 import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
+// importing styled components
+import { PosterThumbnail, Icons } from "./postsStyling";
 
 class PostContainer extends React.Component {
   state = {
@@ -21,13 +22,30 @@ class PostContainer extends React.Component {
 
   handleLikesChanges = event => {
     event.preventDefault();
+    // if (this.state.isLiked) {
+    //   this.setState(previousState => {
+    //     return {
+    //       ...previousState,
+    //       isLiked: !previousState.isLiked,
+    //       likes: previousState.likes - 1
+    //     };
+    //   });
+    // } else {
+    //   this.setState(previousState => {
+    //     return {
+    //       ...previousState,
+    //       isLiked: !previousState.isLiked,
+    //       likes: previousState.likes + 1
+    //     };
+    //   });
+    // }
     this.setState(previousState => {
       return {
         postObjectData: this.props.postObject,
         isLiked: !previousState.isLiked,
         likes: previousState.isLiked
-          ? this.props.postObject.likes + 1
-          : this.props.postObject.likes
+          ? previousState.likes - 1
+          : previousState.likes + 1
       };
     });
   };
@@ -36,39 +54,39 @@ class PostContainer extends React.Component {
     return (
       <>
         <div className="poster-thumbnail-username">
-          <div className="poster-thumbnail">
+          <PosterThumbnail>
             <img
               src={this.state.postObjectData.thumbnailUrl}
               alt="poster-thumbnail"
             />
-          </div>
+          </PosterThumbnail>
           <div className="poster-username">
             {this.state.postObjectData.username}
           </div>
-        </div>
-        <div className="poster-image">
-          <img src={this.state.postObjectData.imageUrl} alt="main" />
-        </div>
-        <div className="icons">
-          <div className="heart-icon">
-            <FontAwesomeIcon
-              className="far fa-heart"
-              icon={farHeart}
-              onClick={this.handleLikesChanges}
-            />
-            {/* onClick=className={fas - heart} */}
+          <div className="poster-image">
+            <img src={this.state.postObjectData.imageUrl} alt="main" />
           </div>
-          <div className="comment-icon" />
-          <FontAwesomeIcon className="far fa-comment" icon={faComment} />
+          <Icons>
+            <div className="heart-icon">
+              <FontAwesomeIcon
+                className="far fa-heart"
+                icon={this.state.isLiked ? fasHeart : farHeart}
+                onClick={this.handleLikesChanges}
+              />
+            </div>
+            <div className="comment-icon" />
+            <FontAwesomeIcon className="far fa-comment" icon={faComment} />
+          </Icons>
+          <div className="likes">{this.state.likes} likes</div>
+          <CommentSection
+            postCommentsArray={this.state.postObjectData.comments}
+          />
         </div>
-        <div className="likes">{this.state.likes} likes</div>
-        <CommentSection
-          postCommentsArray={this.state.postObjectData.comments}
-        />
       </>
     );
   }
 }
+export default PostContainer;
 
 // PostContainer.propTypes = {
 //   postsDataArray: PropTypes.arrayOf(
@@ -93,5 +111,3 @@ class PostContainer extends React.Component {
 // PostContainer.propTypes = {
 //   postObject: {}
 // }
-
-export default PostContainer;
